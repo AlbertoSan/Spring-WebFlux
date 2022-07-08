@@ -39,7 +39,7 @@ public class ProductoRestController {
         //Forma para convertir de un Flux en Mono por el id
         Mono<Producto> producto = productoFlux.filter(p -> p.getId().equals(id)) //Con filter podemos filtrar los resultados
                 .next() // con este operador podemos convertir el FLux en un Mono
-                .doOnNext(prod -> log.info(prod.getNombre()));;
+                .doOnNext(prod -> log.info(prod.getNombre()));
 
         return producto;
     }
